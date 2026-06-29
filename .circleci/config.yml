@@ -1,16 +1,16 @@
 version: 2.1
-
 jobs:
-  build-and-test:
-    machine:
-      image: ubuntu-2004:current
-        
+  build:
+    docker:
+      - image: cimg/python:3.13
     steps:
       - checkout
-      - run: make deps
-      - run: make lint
-      - run: make test
-workflows:
-  basic:
-    jobs:
-      - build-and-test
+      - run:
+          name: Instalacja zależności
+          command: make deps
+      - run:
+          name: Uruchomienie Lintera
+          command: make lint
+      - run:
+          name: Uruchomienie Testów
+          command: make test
