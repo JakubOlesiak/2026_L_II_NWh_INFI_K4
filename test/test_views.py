@@ -17,4 +17,4 @@ class FlaskrTestCase(unittest.TestCase):
     def test_msg_with_output(self):
         rv = self.app.get('/?output=json')
         expected_data = {"imie": "Jakub", "msg": "Hello World!"}
-        self.assertEqual(json.loads(rv.data), expected_data)
+        self.assertEqual(json.loads(rv.data), expected_data) # noqa
