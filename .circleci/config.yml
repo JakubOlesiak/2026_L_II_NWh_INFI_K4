@@ -1,8 +1,8 @@
 version: 2.1
 jobs:
   build:
-    docker:
-      - image: cimg/python:3.13
+    machine:
+      docker_layer_caching: true
     steps:
       - checkout
       - run:
@@ -14,3 +14,9 @@ jobs:
       - run:
           name: Uruchomienie Testów
           command: make test
+      - run:
+          name: Budowanie obrazu Docker
+          command: make docker_build
+      - run:
+          name: Wysłanie obrazu do Docker Hub
+          command: make docker_push
