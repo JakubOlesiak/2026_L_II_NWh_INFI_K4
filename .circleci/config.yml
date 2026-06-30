@@ -22,4 +22,4 @@ jobs:
           command: |
             echo "$DOCKER_PASSWORD" | docker login -u "$USERNAME" --password-stdin
             make docker_push
-            docker logout || tru
+            docker logout || true
