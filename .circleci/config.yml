@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Budowanie obrazu Docker
           command: make docker_build
--       run:
+      - run:
           name: Wysłanie obrazu do Docker Hub
           command: |
             echo $DOCKER_PASSWORD | docker login -u $USERNAME --password-stdin
